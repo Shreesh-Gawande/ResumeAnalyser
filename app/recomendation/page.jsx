@@ -48,7 +48,8 @@ const RecommendationPage = () => {
         formData.append('resume', file);
   
         // Make the API request using axios
-        const response = await axios.post('/api/analyzeProgress', formData, {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+        const response = await axios.post(`${baseUrl}/api/analyzeProgress`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

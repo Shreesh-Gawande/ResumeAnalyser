@@ -47,7 +47,8 @@ const JobMatchingPage = () => {
         formData.append('resume', file);
 
         // Make the API request
-        const response = await axios.post('/api/analyzeRecomendation', formData, {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+        const response = await axios.post(`${baseUrl}/api/analyzeRecomendation`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
